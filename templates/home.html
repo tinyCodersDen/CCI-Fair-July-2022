@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
+    <link rel="stylesheet" href="static/styles/home.css">
+    <title>Super Resolution: The RNN net to convert your blurry pictures</title>
+  </head>
+  <body>
+      <nav style="background-color: #DCDCDC">
+        <div class="nav-wrapper">
+          <a href="#" class="brand-logo" style="color:#2B2D2F"> SuperResNet</a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="/" style="color:#2B2D2F">Upload</a></li>
+            <li><a href="/snap" style="color:#2B2D2F">Camera</a></li>
+          </ul>
+        </div>
+      </nav>
+      <!-- <div class="container">
+        {% with messages = get_flashed_messages() %}
+          {% if messages%}
+            {% for message in messages %}
+              <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{message}}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+            {% endfor %}
+          {%endif%}
+      {%endwith%}
+      </div> -->
+      <br><br>
+      <form action = "/uploader" method = "POST" enctype = "multipart/form-data">
+        <label for="test" class="center-align">
+         <div class="selector">Click or drop something here</div>
+         <input type = "file" name = "file" id="test"/>
+        </label>
+        <br><br>
+        <div class="center-align">
+          <input type = "submit" class="waves-effect waves-light btn" onclick = "toggle()"/>
+        </div>
+      </form>
+      <h3 class="center-align">Enhanced Pictures:</h3>
+      <div class="row" id='row'>
+          {% for i in images %}
+            <div class="col s3 center-align m2">
+              <div class="card">
+                <div class="card-image">
+                  <a download='download.jpg' href={{i[1]}}><img alt="ImageName" src={{i[0]}} height="200"></a>
+                </div>
+                <hr>
+                <div class="card-image">
+                  <a download='download.jpg' href={{i[1]}}><img alt="ImageName" src={{i[1]}} height="200"></a>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+      </div>
+      <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
+      <script src="/static/Js/main.js"></script>
+  </body>
+</html>
