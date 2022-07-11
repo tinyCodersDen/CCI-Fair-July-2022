@@ -1,0 +1,34 @@
+input[type="file"] {
+    position: absolute;
+    left: 0;
+    opacity: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+  }
+.selector {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 316%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ccc;
+    border: 3px dotted #bebebe;
+    border-radius: 10px;
+  }
+  
+  label {
+    align-items: center;
+    display: inline-block;
+    position: relative;
+    height: 100px;
+    width: 400px;
+  }
+  
+.selector.dragover {
+    background-color: #aaa;
+  }
